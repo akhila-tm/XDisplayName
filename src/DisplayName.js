@@ -9,11 +9,16 @@ function DisplayName() {
     const handleSubmit = (e) => {
       e.preventDefault();
   
-      if (!firstName.trim() || !lastName.trim()) {
-        setError("Please fill out both fields.");
+      if (!firstName.trim()) {
+        setError("First Name is required.");
         return;
       }
-  
+    
+      if (!lastName.trim()) {
+        setError("Last Name is required.");
+        return;
+      }
+    
       setError("");
       setSubmitVal(true);
     };
@@ -24,7 +29,7 @@ function DisplayName() {
         <form onSubmit={handleSubmit}>
           <div>
             <label>First Name:</label>
-            <input
+            <input required
               type="text"
               value={firstName}
               onChange={(e) => {
@@ -36,7 +41,7 @@ function DisplayName() {
           <div>
             <label>Last Name:</label>
             <input
-              type="text"
+              type="text" required
               value={lastName}
               onChange={(e) => {
                 setLastName(e.target.value);
@@ -44,7 +49,7 @@ function DisplayName() {
               }}
             />
           </div>
-          {error && <p>{error}</p>}
+          {/* {error && <p>{error}</p>} */}
           <div>
             <button type="submit">Submit</button>
           </div>
