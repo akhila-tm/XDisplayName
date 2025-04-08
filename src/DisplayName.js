@@ -19,7 +19,7 @@ function DisplayName() {
         <h1 className="text-xl font-bold mb-4">Full Name Display</h1>
         <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto border rounded-lg shadow-lg">
           <div className="mb-4">
-            <label className="block text-gray-700">First Name:</label>
+            <label className="block">First Name:</label>
             <input
               type="text"
               required
@@ -28,11 +28,11 @@ function DisplayName() {
                 setFirstName(e.target.value);
                 setSubmitVal(false);
               }}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className=""
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Last Name:</label>
+            <label className="block">Last Name:</label>
             <input
               type="text"
               required
@@ -41,19 +41,19 @@ function DisplayName() {
                 setLastName(e.target.value);
                 setSubmitVal(false);
               }}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className=""
             />
           </div>
           <div>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              className=""
             >
               Submit
             </button>
           </div>
         </form>
-        <div className="mt-4">
+        <div className="">
           {firstName && lastName && submitVal && (
             <p className="text-lg font-semibold">Full Name: {firstName} {lastName}</p>
           )}
