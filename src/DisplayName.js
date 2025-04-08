@@ -4,58 +4,54 @@ function DisplayName() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [submitVal, setSubmitVal] = useState(false);
+    const [error, setError] = useState("");
   
     const handleSubmit = (e) => {
       e.preventDefault();
+  
       if (!firstName.trim() || !lastName.trim()) {
+        setError("Please fill out both fields.");
         return;
       }
   
+      setError("");
       setSubmitVal(true);
     };
   
     return (
       <>
-        <h1 className="text-xl font-bold mb-4">Full Name Display</h1>
-        <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto border rounded-lg shadow-lg">
-          <div className="mb-4">
-            <label className="block">First Name:</label>
+        <h1>Full Name Display</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>First Name:</label>
             <input
               type="text"
-              required
               value={firstName}
               onChange={(e) => {
                 setFirstName(e.target.value);
                 setSubmitVal(false);
               }}
-              className=""
             />
           </div>
-          <div className="mb-4">
-            <label className="block">Last Name:</label>
+          <div>
+            <label>Last Name:</label>
             <input
               type="text"
-              required
               value={lastName}
               onChange={(e) => {
                 setLastName(e.target.value);
                 setSubmitVal(false);
               }}
-              className=""
             />
           </div>
+          {error && <p>{error}</p>}
           <div>
-            <button
-              type="submit"
-              className=""
-            >
-              Submit
-            </button>
+            <button type="submit">Submit</button>
           </div>
         </form>
-        <div className="">
+        <div>
           {firstName && lastName && submitVal && (
-            <p className="text-lg font-semibold">Full Name: {firstName} {lastName}</p>
+            <p>Full Name: {firstName} {lastName}</p>
           )}
         </div>
       </>
