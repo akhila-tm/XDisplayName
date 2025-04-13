@@ -54,11 +54,11 @@ function DisplayName() {
             <button type="submit">Submit</button>
           </div>
         </form>
-        <div>
+        {/* <div> */}
           {firstName && lastName && submitVal && (
             <p>Full Name: {firstName} {lastName}</p>
           )}
-        </div>
+        {/* </div> */}
       </>
     );
   }
